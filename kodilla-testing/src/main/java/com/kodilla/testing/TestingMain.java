@@ -18,9 +18,9 @@ public class TestingMain {
 
         System.out.println("Test - pierwszy test jednostkowy:");
 
-        Calculator calculator = new Calculator(3,4);
+        Calculator calculator = new Calculator();
 
-        Integer calculatorAddResult = calculator.add();
+        Integer calculatorAddResult = calculator.add(3, 4);
 
         if (calculatorAddResult == 7){
             System.out.println("test OK");
@@ -28,8 +28,8 @@ public class TestingMain {
             System.out.println("Error!");
         }
 
-        Calculator calculator1 = new Calculator(10, 9);
-        Integer calculatorSubtractResult = calculator1.subtract();
+        Calculator calculator1 = new Calculator();
+        Integer calculatorSubtractResult = calculator1.subtract(10, 9);
 
         if (calculatorSubtractResult == 1){
             System.out.println("test OK");
