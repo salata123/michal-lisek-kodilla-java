@@ -3,6 +3,9 @@ import com.kodilla.testing.collection.OddNumbersExterminator;
 
 import org.junit.jupiter.api.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class CollectionTestSuite {
     @BeforeEach
     public void before() {
@@ -26,31 +29,28 @@ class CollectionTestSuite {
 
 
 
-    @DisplayName("Testing if class works when the list is empty.")
     @Test
+    @DisplayName("Testing if class works when the list is empty.")
     public void testOddNumbersExterminatorEmptyList(){
         OddNumbersExterminator firstTest = new OddNumbersExterminator();
-        if (firstTest.insertNumbers(0).size() == 0) {
-            System.out.println("Test OK");
-        } else {
-            System.out.println("Error");
-        }
-
-        if (firstTest.insertNumbers(0).size() == 0) {
+        List<Integer> numbers = new ArrayList<>();
+        firstTest.insertNumbers(0, numbers);
+        if (numbers.size() == 0) {
             System.out.println("Test OK");
         } else {
             System.out.println("Error");
         }
     }
 
-    @DisplayName("Testing if class works when the list contains odd and even numbers.")
     @Test
+    @DisplayName("Testing if class works when the list contains odd and even numbers.")
     public void testOddNumbersExterminatorNormalList (){
         OddNumbersExterminator firstTest = new OddNumbersExterminator();
+        List<Integer> numbers = new ArrayList<>();
+        firstTest.insertNumbers(2, numbers);
 
-
-        for (int i = 0; i < firstTest.insertNumbers(2).size(); i++){
-            if (firstTest.insertNumbers(2).get(i) == i){
+        for (int i = 0; i < numbers.size(); i++){
+            if (numbers.get(i) == i+1){
                 System.out.println("test OK");
             } else {
                 System.out.println("Error");
