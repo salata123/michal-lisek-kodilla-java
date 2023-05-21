@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OddNumbersExterminator {
     public List <Integer> insertNumbers(int j, List<Integer> numbers){
-        for (int i = 1; i < j + 1; i++){
+        for (int i = 0; i < j; i++){
             numbers.add(i);
         }
         System.out.println("List of numbers: " + numbers);
@@ -13,14 +13,13 @@ public class OddNumbersExterminator {
     }
 
     public List<Integer> exterminate(List<Integer> numbers){
+        List<Integer> evenNumbers = new ArrayList<>();
         for (int i = 0; i < numbers.size(); i++){
-            if (numbers.get(i) % 2 != 0){
-                numbers.remove(i);
-            } else {
-                numbers.add(numbers.get(i));
+            if (numbers.get(i) % 2 == 0){
+                evenNumbers.add(i);
             }
         }
-        System.out.println("List of even numbers: " + numbers);
+        System.out.println("List of even numbers: " + evenNumbers);
         return numbers;
     }
 

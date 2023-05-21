@@ -50,7 +50,7 @@ class CollectionTestSuite {
         firstTest.insertNumbers(2, numbers);
 
         for (int i = 0; i < numbers.size(); i++){
-            if (numbers.get(i) == i+1){
+            if (numbers.get(i) == i){
                 System.out.println("test OK");
             } else {
                 System.out.println("Error");
