@@ -1,18 +1,61 @@
 package com.kodilla.testing.collection;
+import com.kodilla.testing.collection.OddNumbersExterminator;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 
-import java.util.List;
+class CollectionTestSuite {
+    @BeforeEach
+    public void before() {
+        System.out.println("Test Case: begin");
+    }
 
-public class CollectionTestSuite {
+    @AfterEach
+    public void after() {
+        System.out.println("Test Case: end");
+    }
+
+    @BeforeAll
+    public static void beforeAll() {
+        System.out.println("Test Suite: begin");
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Test Suite: end");
+    }
+
 
 
     @DisplayName("Testing if class works when the list is empty.")
-    public void testOddNumbersExterminatorEmptyList(List<Integer> numbers){
+    @Test
+    public void testOddNumbersExterminatorEmptyList(){
+        OddNumbersExterminator firstTest = new OddNumbersExterminator();
+        if (firstTest.insertNumbers(0).size() == 0) {
+            System.out.println("Test OK");
+        } else {
+            System.out.println("Error");
+        }
 
+        if (firstTest.insertNumbers(0).size() == 0) {
+            System.out.println("Test OK");
+        } else {
+            System.out.println("Error");
+        }
     }
 
     @DisplayName("Testing if class works when the list contains odd and even numbers.")
-    public void testOddNumbersExterminatorNormalList (List<Integer> numbers){
+    @Test
+    public void testOddNumbersExterminatorNormalList (){
+        OddNumbersExterminator firstTest = new OddNumbersExterminator();
+
+
+        for (int i = 0; i < firstTest.insertNumbers(2).size(); i++){
+            if (firstTest.insertNumbers(2).get(i) == i){
+                System.out.println("test OK");
+            } else {
+                System.out.println("Error");
+            }
+        }
     }
+
 }
