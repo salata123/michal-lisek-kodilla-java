@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 @DisplayName("Forum Test Suite")
-class ForumTestSuite {
+class ForumSuiteTestCase {
 
     @DisplayName(
             "When created SimpleUser with name, " +
