@@ -9,16 +9,16 @@ public class ShapeCollector{
     }
     List<Shape> shapeList = new ArrayList<>();
 
-    public List<Shape> addShape(Shape shape){
+    public List<Shape> addFigure(Shape shape){
         shapeList.add(shape);
         return shapeList;
     }
 
-    public Shape getObject(int n){
+    public Shape getFigure(int n){
         return shapeList.get(n);
     }
 
-    public List<Shape> removeShape(Shape shape){
+    public List<Shape> removeFigure(Shape shape){
         List<Shape> removeShape = new ArrayList<>();
         removeShape.addAll(shapeList);
         removeShape.remove(shape);
@@ -26,7 +26,11 @@ public class ShapeCollector{
         }
 
     public String showFigures(){
-        return "Figures";
+        String figures = "";
+        for (int i = 0; i < shapeList.size(); i++){
+            figures += (shapeList.get(i).getShapeName());
+        }
+        return figures;
     }
 }
 
