@@ -1,0 +1,153 @@
+package com.kodilla.testing.forum.statistics;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
+@ExtendWith(MockitoExtension.class)
+public class StatisticsTestSuite {
+    @Mock
+    private Statistics statistics;
+
+    private int zeroPosts = 0;
+    private int oneHundredPosts = 100;
+    private int oneThousandPosts = 1000;
+    private int zeroComments = 0;
+    private int oneHundredComments = 100;
+    private int oneThousandComments = 1000;
+    private List<String> generateListOfUsers(int userNamesQuantity) {
+        List<String> resultList = new ArrayList<>();
+        for (int i = 1; i <= userNamesQuantity; i++) {
+            resultList.add("User#" + i);
+        }
+        return resultList;
+    }
+
+
+    @Test
+    void testWhenNoPosts(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(zeroPosts);
+        when(statistics.commentsCount()).thenReturn(oneThousandComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
+
+
+        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(0, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+    }
+
+    @Test
+    void testWhen1000Posts(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneThousandPosts);
+        when(statistics.commentsCount()).thenReturn(zeroComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
+
+
+        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(0, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+    @Test
+    void testWhenNoComments(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneThousandPosts);
+        when(statistics.commentsCount()).thenReturn(zeroComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
+
+
+        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(0, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+    @Test
+    void testWhenCommentsLessThanPosts(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneThousandPosts);
+        when(statistics.commentsCount()).thenReturn(oneHundredComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
+
+
+        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(10.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+    @Test
+    void testWhenCommentsGreaterThanPosts(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneHundredPosts);
+        when(statistics.commentsCount()).thenReturn(oneThousandComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
+
+
+        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(100, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(10, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+    @Test
+    void testWhenNoUsers(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneThousandPosts);
+        when(statistics.commentsCount()).thenReturn(oneHundredComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(0));
+
+
+        assertEquals(0, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
+        //assertEquals(0.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        //assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+    @Test
+    void testWhen100Users(){
+        StatisticsCalculations statisticsCalculations = new StatisticsCalculations();
+        when(statistics.postsCount()).thenReturn(oneThousandPosts);
+        when(statistics.commentsCount()).thenReturn(oneHundredComments);
+        when(statistics.usersNames()).thenReturn(generateListOfUsers(100));
+
+
+        assertEquals(100, statisticsCalculations.numberOfUsers(statistics));
+        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
+        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
+        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(1.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+    }
+
+
+
+
+
+
+
+
+
+}

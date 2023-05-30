@@ -44,5 +44,6 @@ public class TestingMain {
 
         weatherForecast.calculateAverageTemperature(temperatures);
 
+
     }
 }
