@@ -7,7 +7,7 @@ public class StreamMain {                                                     //
 
     public static void main(String[] args) {                                   // [5]
         Processor processor = new Processor();                                  // [6]
-        Executor codeToExecute = () -> System.out.println("This is an example text.");  // [7]
+        Executor codeToExecute = () -> System.out.println("This is an example text!");  // [7]
         processor.execute(codeToExecute);                                       // [8]
     }
 }
