@@ -8,8 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class StatisticsTestSuite {
@@ -121,8 +120,8 @@ public class StatisticsTestSuite {
         assertEquals(0, statisticsCalculations.numberOfUsers(statistics));
         assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
         assertEquals(100, statisticsCalculations.numberOfComments(statistics));
-        //assertEquals(0.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        //assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
+        assertTrue(Double.isInfinite(statisticsCalculations.averagePostPerUserAmount(statistics)));
+        assertTrue(Double.isInfinite(statisticsCalculations.averageCommentsPerUserAmount(statistics)));
         assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
     }
 
