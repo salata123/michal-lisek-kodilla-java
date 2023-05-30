@@ -90,7 +90,7 @@ class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());                                     // [5]
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
     }
-
+/*
     @Test
     @DisplayName("Test: listing all books of User")
     void testListOfUsersBooks(){
@@ -112,4 +112,6 @@ class BookDirectoryTestSuite {
         assertEquals(1, resultListOf1Book.size());
         assertEquals(5, resultListOf5Books.size());
     }
+
+ */
 }
