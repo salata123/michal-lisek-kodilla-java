@@ -37,12 +37,13 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(oneThousandComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(0, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(0.0, statisticsCalculations.averagePostPerUserAmount(statistics));
+        assertEquals(10, statisticsCalculations.numberOfUsers());
+        assertEquals(0, statisticsCalculations.numberOfPosts());
+        assertEquals(1000, statisticsCalculations.numberOfComments());
+        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(0.0, statisticsCalculations.averagePostPerUserAmount());
     }
 
     @Test
@@ -52,13 +53,14 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(zeroComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(0, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(10, statisticsCalculations.numberOfUsers());
+        assertEquals(1000, statisticsCalculations.numberOfPosts());
+        assertEquals(0, statisticsCalculations.numberOfComments());
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount());
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount());
     }
 
     @Test
@@ -68,13 +70,14 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(zeroComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(0, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(10, statisticsCalculations.numberOfUsers());
+        assertEquals(1000, statisticsCalculations.numberOfPosts());
+        assertEquals(0, statisticsCalculations.numberOfComments());
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount());
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(0.0, statisticsCalculations.averageCommentsPerPostAmount());
     }
 
     @Test
@@ -84,13 +87,14 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(oneHundredComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        assertEquals(10.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(10, statisticsCalculations.numberOfUsers());
+        assertEquals(1000, statisticsCalculations.numberOfPosts());
+        assertEquals(100, statisticsCalculations.numberOfComments());
+        assertEquals(100.0, statisticsCalculations.averagePostPerUserAmount());
+        assertEquals(10.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount());
     }
 
     @Test
@@ -100,13 +104,14 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(oneThousandComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(10));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(10, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(100, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(10, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(10, statisticsCalculations.numberOfUsers());
+        assertEquals(100, statisticsCalculations.numberOfPosts());
+        assertEquals(1000, statisticsCalculations.numberOfComments());
+        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount());
+        assertEquals(100.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(10, statisticsCalculations.averageCommentsPerPostAmount());
     }
 
     @Test
@@ -116,13 +121,14 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(oneHundredComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(0));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(0, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
-        assertTrue(Double.isInfinite(statisticsCalculations.averagePostPerUserAmount(statistics)));
-        assertTrue(Double.isInfinite(statisticsCalculations.averageCommentsPerUserAmount(statistics)));
-        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(0, statisticsCalculations.numberOfUsers());
+        assertEquals(1000, statisticsCalculations.numberOfPosts());
+        assertEquals(100, statisticsCalculations.numberOfComments());
+        assertTrue(Double.isInfinite(statisticsCalculations.averagePostPerUserAmount()));
+        assertTrue(Double.isInfinite(statisticsCalculations.averageCommentsPerUserAmount()));
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount());
     }
 
     @Test
@@ -132,21 +138,13 @@ public class StatisticsTestSuite {
         when(statistics.commentsCount()).thenReturn(oneHundredComments);
         when(statistics.usersNames()).thenReturn(generateListOfUsers(100));
 
+        statisticsCalculations.calculateAdvStatistics(statistics);
 
-        assertEquals(100, statisticsCalculations.numberOfUsers(statistics));
-        assertEquals(1000, statisticsCalculations.numberOfPosts(statistics));
-        assertEquals(100, statisticsCalculations.numberOfComments(statistics));
-        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount(statistics));
-        assertEquals(1.0, statisticsCalculations.averageCommentsPerUserAmount(statistics));
-        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount(statistics));
+        assertEquals(100, statisticsCalculations.numberOfUsers());
+        assertEquals(1000, statisticsCalculations.numberOfPosts());
+        assertEquals(100, statisticsCalculations.numberOfComments());
+        assertEquals(10.0, statisticsCalculations.averagePostPerUserAmount());
+        assertEquals(1.0, statisticsCalculations.averageCommentsPerUserAmount());
+        assertEquals(0.1, statisticsCalculations.averageCommentsPerPostAmount());
     }
-
-
-
-
-
-
-
-
-
 }
