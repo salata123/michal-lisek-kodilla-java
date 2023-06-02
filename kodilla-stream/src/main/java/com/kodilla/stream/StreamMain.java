@@ -13,6 +13,8 @@ public class StreamMain {
 
         poemBeautifier.beautify(abc, textToBeautify, abc, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
         poemBeautifier.beautify(frame, textToBeautify, frame, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
-        poemBeautifier.beautify(floor, textToBeautify, floor, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
+        poemBeautifier.beautify(floor, textToBeautify, floor, (beautify1, text, beautify2) -> beautify1 + text.toUpperCase() + beautify2);
+        poemBeautifier.beautify(frame, textToBeautify, frame, (beautify1, text, beautify2) -> beautify1 + text.toUpperCase() + beautify2);
+
     }
 }
