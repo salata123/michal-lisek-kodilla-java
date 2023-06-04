@@ -1,40 +1,24 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.book.Book;
-import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.person.People;
 
-import java.util.List;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
-
     public static void main(String[] args) {
-        String textToBeautify = "hello";
-        String floor = "___";
-        String abc = "ABC";
-        String frame = "[]";
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        Forum theForum = new Forum();
 
-        poemBeautifier.beautify(abc, textToBeautify, abc, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
-        poemBeautifier.beautify(frame, textToBeautify, frame, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
-        poemBeautifier.beautifyToUpperCase(floor, textToBeautify, floor, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
-        poemBeautifier.beautifyToUpperCase(frame, textToBeautify, frame, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
-        poemBeautifier.beautifySplitUpperCase(frame, textToBeautify, frame, (beautify1, text, beautify2) -> beautify1 + text + beautify2);
+        Map<Integer, ForumUser> theForumUsersList = theForum.getUserList().stream()
+            .filter(forumUser -> forumUser.getGender() == 'M')
+            .filter(forumUser -> forumUser.getBirthDate().isBefore(LocalDate.now().minusYears(20)))
+            .filter(forumUser -> forumUser.getNumberOfPosts() > 1)
+            .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
 
-
-        BookDirectory theBookDirectory = new BookDirectory();
-
-        Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
-                .filter(book -> book.getYearOfPublication() > 2005)
-                .collect(Collectors.toMap(Book::getSignature, book -> book));             // [1]
-
-        System.out.println("# elements: " + theResultMapOfBooks.size());             // [2]
-        theResultMapOfBooks.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())                   // [3]
+        theForumUsersList.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
     }
 }
