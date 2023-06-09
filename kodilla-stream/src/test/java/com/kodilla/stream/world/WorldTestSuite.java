@@ -1,16 +1,10 @@
 package com.kodilla.stream.world;
 
-import com.kodilla.stream.sand.Africa;
-import com.kodilla.stream.sand.Asia;
-import com.kodilla.stream.sand.Europe;
-import com.kodilla.stream.sand.SandStorage;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
