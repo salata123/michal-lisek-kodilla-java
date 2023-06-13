@@ -16,6 +16,8 @@ public class FirstChallenge {
      * @param args
      */
     public static void main(String[] args) {
+        //8.2
+
         FirstChallenge firstChallenge = new FirstChallenge();
         double result;
 
@@ -37,5 +39,9 @@ public class FirstChallenge {
             System.out.println(LocalDate.now());
         }
         System.out.println(result);
+
+        //8.3
+        ExceptionHandling exceptionHandling = new ExceptionHandling();
+        exceptionHandling.exceptionHandling(0, 1.5);
     }
 }
