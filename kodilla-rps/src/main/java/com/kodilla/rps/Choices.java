@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Choices {
     Random random = new Random();
-    String aiRandomSelection;
-    int[] result = new int[2];
-    boolean end = false;
+    private String aiRandomSelection;
+    private int[] result = new int[2];
+    private boolean end = false;
     public int[] getResult() {
         return result;
     }
