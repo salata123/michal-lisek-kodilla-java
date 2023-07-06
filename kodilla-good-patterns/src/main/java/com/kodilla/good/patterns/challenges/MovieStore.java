@@ -29,7 +29,7 @@ public class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-    public void movieTitlesList(){
+    public void movieTitlesList() {
         String movieList = getMovies().values().stream()
                 .flatMap(List::stream)
                 .collect(Collectors.joining("!", "", ""));

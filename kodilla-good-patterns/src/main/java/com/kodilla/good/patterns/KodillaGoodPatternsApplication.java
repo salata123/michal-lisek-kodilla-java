@@ -11,6 +11,5 @@ public class KodillaGoodPatternsApplication {
 		SpringApplication.run(KodillaGoodPatternsApplication.class, args);
 		MovieStore movieStore = new MovieStore();
 		movieStore.movieTitlesList();
-
 	}
 }
