@@ -1,5 +1,9 @@
 package com.kodilla.good.patterns;
 
+import com.kodilla.good.patterns.airlines.FlightList;
+import com.kodilla.good.patterns.airlines.FlightProcessor;
+import com.kodilla.good.patterns.airlines.FlightRequest;
+import com.kodilla.good.patterns.airlines.FlightRequestRetriever;
 import com.kodilla.good.patterns.challenges2.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,10 +11,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KodillaGoodPatternsApplication {
 
 	public static void main(String[] args) {
-		OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
-		OrderRequest orderRequest = orderRequestRetriever.retrieve();
+		FlightRequestRetriever flightRequestRetriever = new FlightRequestRetriever();
+		FlightRequest flightRequest = flightRequestRetriever.retrieve();
 
-		ProductOrderService productOrderService = new ProductOrderService(new InformationService(), new OrderRepository());
-		productOrderService.process(orderRequest);
+		FlightProcessor flightProcessor = new FlightProcessor();
+		System.out.println(flightProcessor.findFlightsToCity(flightRequest.getFlightList(), flightRequest.getUserOrder()));
+
+		FlightRequest flightRequest2 = flightRequestRetriever.retrieve2();
+		System.out.println(flightProcessor.findFlightsFromCity(flightRequest2.getFlightList(), flightRequest2.getUserOrder()));
+
+		FlightRequest flightRequest3 = flightRequestRetriever.retrieve3();
+		System.out.println(flightProcessor.findFlightsWithIntermediateCity(flightRequest3.getFlightList(), flightRequest3.getUserOrder()));
 	}
 }

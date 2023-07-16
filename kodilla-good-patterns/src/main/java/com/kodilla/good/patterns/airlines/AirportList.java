@@ -1,13 +1,14 @@
 package com.kodilla.good.patterns.airlines;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AirportList {
 
-    private HashMap<Integer, Airport> airportMap = new HashMap<>();;
+    private HashMap<Integer, Airport> airportMap;
 
     public void addAirports() {
+        airportMap = new HashMap<>();
+
         airportMap.put(1, new Airport("Warsaw Chopin Airport", "Warsaw"));
         airportMap.put(2, new Airport("Kraków John Paul II International Airport", "Kraków"));
         airportMap.put(3, new Airport("Gdańsk Lech Wałęsa Airport", "Gdańsk"));
@@ -22,5 +23,12 @@ public class AirportList {
 
     public HashMap<Integer, Airport> getAirportMap() {
         return airportMap;
+    }
+
+    @Override
+    public String toString() {
+        return "AirportList{" +
+                "airportMap=" + airportMap +
+                '}';
     }
 }
