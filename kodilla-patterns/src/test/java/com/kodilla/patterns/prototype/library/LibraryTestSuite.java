@@ -44,12 +44,12 @@ class LibraryTestSuite {
         int expectedBookCountShallow = 1;
         int expectedBookCountDeep = 2;
 
-        originalLibrary.books.remove(book1);
+        originalLibrary.getBooks().remove(book1);
 
         //Then
-        assertEquals(expectedBookCountShallow, originalLibrary.books.size());
-        assertEquals(expectedBookCountShallow, clonedLibrary.books.size());
-        assertEquals(expectedBookCountDeep, deepClonedLibrary.books.size());
+        assertEquals(expectedBookCountShallow, originalLibrary.getBooks().size());
+        assertEquals(expectedBookCountShallow, clonedLibrary.getBooks().size());
+        assertEquals(expectedBookCountDeep, deepClonedLibrary.getBooks().size());
         assertEquals(clonedLibrary.getBooks(), originalLibrary.getBooks());
         assertNotEquals(deepClonedLibrary.getBooks(), originalLibrary.getBooks());
     }
