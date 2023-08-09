@@ -38,7 +38,7 @@ public class SudokuBoard implements Cloneable{
         return board;
     }
     public SudokuRow getRow(int row){
-        return getBoard().get(row);
+        return board.get(row);
     }
 
     @Override
