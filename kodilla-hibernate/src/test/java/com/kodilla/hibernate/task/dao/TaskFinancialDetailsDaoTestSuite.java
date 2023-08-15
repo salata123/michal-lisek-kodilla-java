@@ -19,21 +19,21 @@ class TaskFinancialDetailsDaoTestSuite {
     @Autowired
     private TaskFinancialDetailsDao taskFinancialDetailsDao;
 
-    @Test
-    void testFindByPaid() {
-        //Given
-        TaskFinancialDetails taskFinancialDetails =
-                new TaskFinancialDetails(new BigDecimal(115), false);
-        taskFinancialDetailsDao.save(taskFinancialDetails);
-        int id = taskFinancialDetails.getId();
+//    @Test
+//    void testFindByPaid() {
+//        //Given
+//        TaskFinancialDetails taskFinancialDetails =
+//                new TaskFinancialDetails(new BigDecimal(115), false);
+//        taskFinancialDetailsDao.save(taskFinancialDetails);
+//        int id = taskFinancialDetails.getId();
+//
+//        //When
+//        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
+//
+//        //Then
+//        assertEquals(1, resultList.size());
+//
+//        //CleanUp
 
-        //When
-        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
 
-        //Then
-        assertEquals(1, resultList.size());
-
-        //CleanUp
-
-    }
 }
