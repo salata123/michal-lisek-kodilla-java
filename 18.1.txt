@@ -1,24 +1,23 @@
 {
-	{
-	 "name" = "Bravo",
-	 "brand" = "Fiat",
-	 "inside":{
-		"seat1":{
+	 "name" = "bravo",
+	 "brand" = "fiat",
+	 "inside":[
+		{
 			"material" = "leather",
 			"color" = "black"
 		}.
-		"seat2":{
+		{
 			"material" = "leather",
 			"color" = "black"
 		},
-		"seat3":{
+		{
 			"material" = "fabric",
 			"color" = "black"
 		},
-		"seat4":{
+		{
 			"material" = "fabric",
 			"color" = "black"
 		}
-	 }
+	 ]
 	 "EngineCapacityLiters" : 2
 }
