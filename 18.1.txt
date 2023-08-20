@@ -1,6 +1,6 @@
 {
-	 "name" = "bravo",
-	 "brand" = "fiat",
+	 "name" : "bravo",
+	 "brand" : "fiat",
 	 "inside":[
 		{
 			"material" : "leather",
