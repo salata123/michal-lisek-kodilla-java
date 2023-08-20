@@ -3,21 +3,21 @@
 	 "brand" = "fiat",
 	 "inside":[
 		{
-			"material" = "leather",
-			"color" = "black"
+			"material" : "leather",
+			"color" : "black"
 		}.
 		{
-			"material" = "leather",
-			"color" = "black"
+			"material" : "leather",
+			"color" : "black"
 		},
 		{
-			"material" = "fabric",
-			"color" = "black"
+			"material" : "fabric",
+			"color" : "black"
 		},
 		{
-			"material" = "fabric",
-			"color" = "black"
+			"material" : "fabric",
+			"color" : "black"
 		}
 	 ]
-	 "EngineCapacityLiters" : 2
+	 "engineCapacityLiters" : 2
 }
