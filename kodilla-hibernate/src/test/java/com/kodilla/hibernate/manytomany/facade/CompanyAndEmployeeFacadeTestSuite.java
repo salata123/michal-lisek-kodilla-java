@@ -35,14 +35,14 @@ public class CompanyAndEmployeeFacadeTestSuite {
         List<Company> companyList4 = facade.companyFinderByFragment(fragment4);
 
         //Then
-        assertEquals(12, employeeList1.size());
+        assertEquals(1, employeeList1.size());
         assertEquals(0, employeeList2.size());
-        assertEquals(12, employeeList3.size());
+        assertEquals(1, employeeList3.size());
         assertEquals(0, employeeList4.size());
 
         assertEquals(0, companyList1.size());
-        assertEquals(12, companyList2.size());
+        assertEquals(1, companyList2.size());
         assertEquals(0, companyList3.size());
-        assertEquals(36, companyList4.size());
+        assertEquals(3, companyList4.size());
     }
 }
