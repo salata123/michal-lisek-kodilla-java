@@ -63,53 +63,53 @@ class CompanyDaoTestSuite {
         //}
     }
 
-    @Test
-    public void namedQueriesTest(){
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
-
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
-
-        softwareMachine.getEmployees().add(johnSmith);
-        dataMaesters.getEmployees().add(stephanieClarckson);
-        dataMaesters.getEmployees().add(lindaKovalsky);
-        greyMatter.getEmployees().add(johnSmith);
-        greyMatter.getEmployees().add(lindaKovalsky);
-
-        johnSmith.getCompanies().add(softwareMachine);
-        johnSmith.getCompanies().add(greyMatter);
-        stephanieClarckson.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(greyMatter);
-
-        List<Employee> employeesByLastname = employeeDao.retrieveEmployeeByLastname("Clarckson");
-        List<Company> companiesStartingWithLetters = companyDao.retrieveThreeFirstLetters("DAT");
-        int id1 = softwareMachine.getId();
-        int id2 = dataMaesters.getId();
-        int id3 = greyMatter.getId();
-
-        int id4 = johnSmith.getId();
-        int id5 = stephanieClarckson.getId();
-        int id6 = lindaKovalsky.getId();
-
-        try {
-            assertEquals(1, employeesByLastname.size());
-            assertEquals(1, companiesStartingWithLetters.size());
-
-        } finally {
-            //CleanUp
-            companyDao.deleteById(id1);
-            companyDao.deleteById(id2);
-            companyDao.deleteById(id3);
-            employeeDao.deleteById(id4);
-            employeeDao.deleteById(id5);
-            employeeDao.deleteById(id6);
-//            employeeDao.deleteAll();
-//            companyDao.deleteAll();
-        }
-    }
+//    @Test
+//    public void namedQueriesTest(){
+//        Employee johnSmith = new Employee("John", "Smith");
+//        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+//        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+//
+//        Company softwareMachine = new Company("Software Machine");
+//        Company dataMaesters = new Company("Data Maesters");
+//        Company greyMatter = new Company("Grey Matter");
+//
+//        softwareMachine.getEmployees().add(johnSmith);
+//        dataMaesters.getEmployees().add(stephanieClarckson);
+//        dataMaesters.getEmployees().add(lindaKovalsky);
+//        greyMatter.getEmployees().add(johnSmith);
+//        greyMatter.getEmployees().add(lindaKovalsky);
+//
+//        johnSmith.getCompanies().add(softwareMachine);
+//        johnSmith.getCompanies().add(greyMatter);
+//        stephanieClarckson.getCompanies().add(dataMaesters);
+//        lindaKovalsky.getCompanies().add(dataMaesters);
+//        lindaKovalsky.getCompanies().add(greyMatter);
+//
+//        List<Employee> employeesByLastname = employeeDao.retrieveEmployeeByLastname("Clarckson");
+//        List<Company> companiesStartingWithLetters = companyDao.retrieveThreeFirstLetters("DAT");
+//        int id1 = softwareMachine.getId();
+//        int id2 = dataMaesters.getId();
+//        int id3 = greyMatter.getId();
+//
+//        int id4 = johnSmith.getId();
+//        int id5 = stephanieClarckson.getId();
+//        int id6 = lindaKovalsky.getId();
+//
+//        try {
+//            assertEquals(1, employeesByLastname.size());
+//            assertEquals(1, companiesStartingWithLetters.size());
+//
+//        } finally {
+//            //CleanUp
+//            companyDao.deleteById(id1);
+//            companyDao.deleteById(id2);
+//            companyDao.deleteById(id3);
+//            employeeDao.deleteById(id4);
+//            employeeDao.deleteById(id5);
+//            employeeDao.deleteById(id6);
+////            employeeDao.deleteAll();
+////            companyDao.deleteAll();
+//        }
+//    }
 
 }

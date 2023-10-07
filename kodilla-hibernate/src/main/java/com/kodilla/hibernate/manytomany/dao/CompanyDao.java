@@ -14,4 +14,7 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query
     List<Company> retrieveThreeFirstLetters(@Param("FIRSTTHREELETTERS") String name);
+
+    @Query("SELECT c FROM Company c WHERE c.name LIKE %:FRAGMENT%")
+    List<Company> findCompaniesByTextFragment(@Param("FRAGMENT") String fragment);
 }
