@@ -16,7 +16,7 @@ public class CompanyAndEmployeeFacadeTestSuite {
     private CompanyAndEmployeeFacade facade;
 
     @Test
-    void  TestFindingEmployeeByTextFragment() {
+    void testFindingEmployeeByTextFragment() {
         //Given
         String fragment1 = "sm";
         String fragment2 = "ft";
