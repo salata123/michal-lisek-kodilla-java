@@ -76,7 +76,7 @@ public class CrudAppTestSuite {
 
         Thread.sleep(4000);								                            // [8]
 
-        driverTrello.findElement(By.id("password")).sendKeys("Edward321!!!");		    // [7]
+        driverTrello.findElement(By.id("password")).sendKeys("passwrod");		    // [7]
         driverTrello.findElement(By.cssSelector("span[class='css-178ag6o']")).click();
         Thread.sleep(4000);								                            // [8]
 
