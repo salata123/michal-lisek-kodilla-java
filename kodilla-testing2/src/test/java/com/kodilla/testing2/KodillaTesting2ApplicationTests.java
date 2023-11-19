@@ -1,4 +1,4 @@
-package kodillacourse.kodillatesting2;
+package com.kodilla.testing2;
 
 import com.kodilla.testing2.KodillaTesting2Application;
 import org.junit.jupiter.api.Test;
