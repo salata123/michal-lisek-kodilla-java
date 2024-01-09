@@ -16,12 +16,12 @@ public class SudokuGameLoop {
             if (gameFinished) {
                 System.out.println("Press 'enter' to play again or type 'EXIT' to quit");
 
-                String input = scanner.nextLine().trim(); // Use trim() to remove leading/trailing whitespace
+                String input = scanner.nextLine().trim();
 
                 if (input.isEmpty()) {
                     sudokuBoard = new SudokuBoard();
                 } else if (input.equalsIgnoreCase("EXIT")) {
-                    playAgain = false; // Exit the loop
+                    playAgain = false;
                 }
             }
         }
